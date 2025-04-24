@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="1.JPEG" alt="Welcome"></div>
+      <div class="carousel-slide"><img src="2.JPEG" alt="Sell"></div>
+      <div class="carousel-slide"><img src="3.JPEG" alt="Deals"></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+  <!-- Heading -->
+  <h2 style="text-align: center; margin-top: 2rem;">Electronics</h2>
+  <!-- Layout -->
+    <section class="product-grid" id="productGrid">
+        <!-- Electronics -->
+
+      <div class="product-card hover-card">
+        <div id="electronics"></div>
+        <div class="product-image-wrapper">
+          <img src="4.avif" alt="Microsoft Laptop" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Microsoft Surface Laptop 7 13.8" X Plus 16GB 512GB- Graphite<h3>
+        <strong>$1,299.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="5.avif" alt="Microsoft laptop" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Microsoft Surface Laptop 7 13.8" X Plus 16GB 1TB- Platinum</h3>
+        <strong>$1,699.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="6.avif" alt="Microsoft Laptop" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Microsoft Surface Laptop 7 13.8" X Elite 16GB 1TB- Graphite</h3>
+        <strong>$1,699.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="7.avif" alt="MacBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>13-inch MacBook Air: Apple M3 chip with 8-core CPU and 10-core GPU 24GB<h3>
+        <strong>$1,199.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="8.avif" alt="MacBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>14-inch MacBook Pro: Apple M4 chip with 10-core CPU and 10-core GPU 24GB<h3>
+        <strong>$1,899.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="9.avif" alt="MacBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>15-inch MacBook Air: Apple M3 chip with 8-core CPU and 10-core GPU 24GB<h3>
+        <strong>$1,399.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="10.avif" alt="iMac" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>24-inch iMac with Retina 4.5K display: Apple M4 chip with 10-core CPU and 10-core GPU 24GB<h3>
+        <strong>$1,399.00</strong>
+      </div>
+      
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="11.avif" alt="iMac" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>24-inch iMac with Retina 4.5K display: Apple M4 chip with 8-core CPU and 8-core GPU 16GB<h3>
+        <strong>$1,399.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="12.avif" alt="iMac" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>24-inch iMac with Retina 4.5K display Nano-texture glass: Apple M4 chip with 10-core CPU and 10-core GPU 256GB SSD 16GB<h3>
+        <strong>$1,399.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="13.avif" alt="Printer" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Canon PIXMA TS202 Inkjet Color Printer<h3>
+        <strong>$66.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="14.avif" alt="Printer" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>HP ENVY Inspire 7955e WIreleess Inkjet Multifunction Printer<h3>
+        <strong>$359.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="15.avif" alt="Printer" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Epson WorkForce WF-2960 All-in-one Printerr<h3>
+        <strong>$192.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="16.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Charger 5 Wireless Speaker Red<h3>
+        <strong>$194.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="17.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Charger 5 Black<h3>
+        <strong>$179.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="18.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Charger 5 Bluetooth Speakerk<h3>
+        <strong>$179.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="19.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Flip 6 Wireless Speaker, Teal<h3>
+        <strong>$134.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="20.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JJBL Flip 6 Wireless Speaker, Blue<h3>
+        <strong>$134.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="21.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Flip 6 Wireless Speaker, Black<h3>
+        <strong>$134.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="22.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Go 4 Wirelsess Speaker - Red<h3>
+        <strong>$54.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="23.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Go 4 Wirelsess Speaker - Blue<h3>
+        <strong>$54.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="24.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JBL Go 4 Wireless Speaker - Camo<h3>
+        <strong>$54.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="25.avif" alt="Headphones" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JLab JBuds Lux ANC Headphones - Mauve<h3>
+        <strong>$79.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="26.avif" alt="Headphones" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JJLab JBuds Lux ANC Headphones - Sage<h3>
+        <strong>$79.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="27.avif" alt="Headphones" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JLab JBuds Lux ANC Headphones - Cloud White<h3>
+        <strong>$79.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="28.avif" alt="Storage" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Centon 32 GB USB 2.0 DataStick Pro2<h3>
+        <strong>$7.50</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="29.avif" alt="Storage" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>DataStick Pro2 USB 3.0, 32GB<h3>
+        <strong>$14.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="30.avif" alt="Storage" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>DataStick Pro2 USB 3.0, 32GB - Blue<h3>
+        <strong>$14.98</strong>
+      </div>
+    </section>
+</div>
+
+<!-- Banner -->
+<section class="banner">
+  <h2>Buy, Sell, and Trade on Campus</h2>
+  <p>Everything you need – from students, for students!</p>
+</section>
+
+
+<footer>
+  <p>&copy; 2025 KU Marketplace | Kean University, Union NJ</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("cartItemsContainer");
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+    } else {
+      cart.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="placeholder.jpg" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.location}</p>
+          <strong>${item.price}</strong>
+        `;
+        container.appendChild(card);
+      });
+    }
+  });
+
+  function clearCart() {
+    localStorage.removeItem("cart");
+    location.reload();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("kuUser"));
+    const accountDropdown = document.getElementById("accountDropdown");
+    const accountName = document.getElementById("accountName");
+    const loginLink = document.getElementById("loginLink");
+
+    if (user && accountDropdown && accountName) {
+      accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+      accountDropdown.style.display = "inline-block";
+      if (loginLink) loginLink.style.display = "none";
+    }
+  });
+function logout() {
+    localStorage.removeItem("kuUser");
+    window.location.href = "login.html";
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchBar = document.getElementById("searchBar");
+if (searchBar) {
+  searchBar.addEventListener("keyup", function (event) {
+    const keyword = this.value.toLowerCase();
+
+    // Filter products (if present)
+    const cards = document.querySelectorAll(".product-card");
+    if (cards.length) {
+      cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+        const match = title.includes(keyword) || desc.includes(keyword);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    // Redirect if Enter is pressed
+    if (event.key === "Enter") {
+      if (keyword.includes("textbook")) {
+        window.location.href = "index.html";
+      } else if (keyword.includes("electronics")) {
+        window.location.href = "electronics.html";
+      } else if (keyword.includes("apparel")) {
+        window.location.href = "apparel.html";
+      } else if (keyword.includes("student")) {
+        window.location.href = "student.html";
+      } else if (keyword.includes("decor") || keyword.includes("art")) {
+        window.location.href = "art_decor.html";
+      } else {
+        alert("No matching category found.");
+      }
+    }
+  });
+}
+
+});
+</script>
+</body>
+</html>

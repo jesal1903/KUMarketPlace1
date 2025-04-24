@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="1.JPEG" alt="Welcome"></div>
+      <div class="carousel-slide"><img src="2.JPEG" alt="Sell"></div>
+      <div class="carousel-slide"><img src="3.JPEG" alt="Deals"></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+  <!-- Heading -->
+  <h2 style="text-align: center; margin-top: 2rem;">Student Essentials</h2>
+  <!-- Layout -->
+
+    <section class="product-grid" id="productGrid">
+      
+      <!-- Student Essentials -->
+
+      <div class="product-card hover-card">
+        <div id="student-essentials"></div>
+        <div class="product-image-wrapper">
+          <img src="https://www.ikea.com/us/en/images/products/micke-desk-white__0736018_pe740345_s5.jpg?f=xl" alt="Desk" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>MICKE<h3><small>Desk, 41 3/8x19 5/8 "</small>
+        <strong>$89.99</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://www.ikea.com/us/en/images/products/kallax-desk-white__1327543_pe944490_s5.jpg?f=xl" alt="Desk" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>KALLAX<h3><small>Desk, 43 3/4x15 3/8 "</small>
+        <strong>$79.99</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://www.ikea.com/us/en/images/products/hauga-chair-white__1336852_pe947477_s5.jpg?f=xl" alt="Desk Chair" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>HAUGA<h3><small>Chair</small>
+        <strong>$40.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/9020/732_609669020.jpg" alt="Student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Safavieh Penton Throw Blanket 50"x 60"<h3><small>GREY/WHITE</small>
+        <strong>$48.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/2326/732_571022326.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Spry Pure Filtered Poly fill Pillow<h3><small>King/Queen</small>
+        <strong>$89.00</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/0661/732_692320661_LTBLU.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Martex EcoPure Comfort Wash Comforter Set<h3><small> </small>
+        <strong>$129.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/0768/732_692320768_BLACK.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Martex Easy Living Sheet Set<h3><small> </small>
+        <strong>$34.90</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/7771/732_707797771.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Lilly Pulitzer Medium 18" Pillow Have it Both Ray<h3><small> </small>
+        <strong>$48.99</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/4690/732_697484690.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Safavieh Zelina Pillow<h3><small> </small>
+        <strong>$52.99</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/1023/732_692321023_LTBROWN.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Martex Plush Blanket<h3><small> </small>
+        <strong>$34.90</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/7392/732_694977392.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Barefoot Dreams CozyChic Throw Dove Gray<h3><small>40% OFF</small>
+        <strong>$87.75</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/9884/732_543119884.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Adjust Cyclone Pdstl Fan Blk<h3><small> </small>
+        <strong>$64.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/9892/732_543119892.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>52" Oscillating Pedestal Fan<h3><small> </small>
+        <strong>$79.90</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/8764/732_609668764.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Safavieh Caden Table Lamp 7"x 7: x 22.5"<h3><small> </small>
+        <strong>$89.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/3996/732_696763996.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Fowley 18.75" Table Lamp with USB<h3><small> </small>
+        <strong>$99.99</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/1914/732_662621914.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Rubiks Cube<h3><small>25% OFF</small>
+        <strong>$7.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/1381/732_697771381_GREY.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Bedside Perch by Squirrel<h3><small> </small>
+        <strong>$44.90</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/4511/732_694604511.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Woolite Sanitized Ultimate Activewear Wash Bags<h3><small>Set 0f 4 (2 White, 2 Grey)</small>
+        <strong>$34.90</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/1513/732_696811513.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>White 3-Cubby Shoe Organizer Bench With Cushion<h3><small> </small>
+        <strong>$119.90</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://static.helixbeta.com/prod/732/0493/732_692320493_BLU.jpg" alt="student" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Utica Essentials 6-Piece Bath Towel Set<h3><small> </small>
+        <strong>$29.90</strong>
+      </div>
+
+    </section>
+</div>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Buy, Sell, and Trade on Campus</h2>
+    <p>Everything you need – from students, for students!</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KU Marketplace | Kean University, Union NJ</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("cartItemsContainer");
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+      } else {
+        cart.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <img src="placeholder.jpg" alt="${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.location}</p>
+            <strong>${item.price}</strong>
+          `;
+          container.appendChild(card);
+        });
+      }
+    });
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("kuUser"));
+    const accountDropdown = document.getElementById("accountDropdown");
+    const accountName = document.getElementById("accountName");
+    const loginLink = document.getElementById("loginLink");
+
+    if (user && accountDropdown && accountName) {
+      accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+      accountDropdown.style.display = "inline-block";
+      if (loginLink) loginLink.style.display = "none";
+    }
+  });
+  function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBar = document.getElementById("searchBar");
+if (searchBar) {
+  searchBar.addEventListener("keyup", function (event) {
+    const keyword = this.value.toLowerCase();
+
+    // Filter products (if present)
+    const cards = document.querySelectorAll(".product-card");
+    if (cards.length) {
+      cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+        const match = title.includes(keyword) || desc.includes(keyword);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    // Redirect if Enter is pressed
+    if (event.key === "Enter") {
+      if (keyword.includes("textbook")) {
+        window.location.href = "index.html";
+      } else if (keyword.includes("electronics")) {
+        window.location.href = "electronics.html";
+      } else if (keyword.includes("apparel")) {
+        window.location.href = "apparel.html";
+      } else if (keyword.includes("student")) {
+        window.location.href = "student.html";
+      } else if (keyword.includes("decor") || keyword.includes("art")) {
+        window.location.href = "art_decor.html";
+      } else {
+        alert("No matching category found.");
+      }
+    }
+  });
+}
+
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="1.JPEG" alt="Welcome"></div>
+      <div class="carousel-slide"><img src="2.JPEG" alt="Sell"></div>
+      <div class="carousel-slide"><img src="3.JPEG" alt="Deals"></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+  <!-- Heading -->
+  <h2 style="text-align: center; margin-top: 2rem;">Graduation</h2>
+  <!-- Layout -->
+    <section class="product-grid" id="productGrid">
+    <!-- Graduation -->
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/1129/732_259241129.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Church Hill Classic 8.5" x 11" Showcase Cherry Diploma Frame<h3><small></small>
+            <strong>$219.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/9295/732_345669295.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Framing Success 8.5 x 11 Windsor Gold Medallion Bachelors, Masters, Doctorate Diploma Frame<h3><small></small>
+            <strong>$195.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/9308/732_345669308.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Framiing Success 8.5 x 11 Prestige Gold Embossed School Seal Bachelors, Masters, Doctorate Diploma Frame<h3><small></small>
+            <strong>$174.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/9705/732_969705.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Church Hill Classic 8.5" x 11" Masterpiece Cherry Diploma Frame<h3><small></small>
+            <strong>$209.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/9712/732_969712.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Church Hill Classic 8.5" x 11" Presidential Walnut Diploma Frame<h3><small></small>
+            <strong>$259.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/9316/732_345669316.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Framing Success 8.5 x 11 Classic Gold Embossed School Seal Bachelors, Masters, Doctorate Diploma Frame<h3><small></small>
+            <strong>$163.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/1367/732_705871367.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Church Hill Classic, Tassel, 8.5x11, Walnut<h3><small></small>
+            <strong>$189.00</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/8198/732_688908198.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Church Hill Classic Graduation Stole Shadowbox Frame<h3><small></small>
+            <strong>$49.95</strong>
+        </div>
+
+        <div class="product-card hover-card">
+            <div class="product-image-wrapper">
+                <img src="https://static.helixbeta.com/prod/732/1375/732_705871375.jpg" alt="Graduation" />
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <h3>Framing Success 8.5 x 11 Windsor Gold Medallion Bachelors, Masters, Doctorate Diploma/Photo Frame<h3><small></small>
+            <strong>$258.00</strong>
+        </div>
+    </section>
+  </div>
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Buy, Sell, and Trade on Campus</h2>
+    <p>Everything you need – from students, for students!</p>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 KU Marketplace | Kean University, Union NJ</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("cartItemsContainer");
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+      } else {
+        cart.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <img src="placeholder.jpg" alt="${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.location}</p>
+            <strong>${item.price}</strong>
+          `;
+          container.appendChild(card);
+        });
+      }
+    });
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("kuUser"));
+    const accountDropdown = document.getElementById("accountDropdown");
+    const accountName = document.getElementById("accountName");
+    const loginLink = document.getElementById("loginLink");
+
+    if (user && accountDropdown && accountName) {
+      accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+      accountDropdown.style.display = "inline-block";
+      if (loginLink) loginLink.style.display = "none";
+    }
+  });
+  function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBar = document.getElementById("searchBar");
+if (searchBar) {
+  searchBar.addEventListener("keyup", function (event) {
+    const keyword = this.value.toLowerCase();
+
+    // Filter products (if present)
+    const cards = document.querySelectorAll(".product-card");
+    if (cards.length) {
+      cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+        const match = title.includes(keyword) || desc.includes(keyword);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    // Redirect if Enter is pressed
+    if (event.key === "Enter") {
+      if (keyword.includes("textbook")) {
+        window.location.href = "index.html";
+      } else if (keyword.includes("electronics")) {
+        window.location.href = "electronics.html";
+      } else if (keyword.includes("apparel")) {
+        window.location.href = "apparel.html";
+      } else if (keyword.includes("student")) {
+        window.location.href = "student.html";
+      } else if (keyword.includes("decor") || keyword.includes("art")) {
+        window.location.href = "art_decor.html";
+      } else {
+        alert("No matching category found.");
+      }
+    }
+  });
+}
+
+  });
+  </script>
+</body>
+</html>

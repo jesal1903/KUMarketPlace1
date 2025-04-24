@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account - KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .account-container {
+      max-width: 800px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #ccc;
+    }
+    .tabs button {
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .tabs button.active {
+      color: #003366;
+      border-bottom: 3px solid #003366;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    .order-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+    }
+    .order-card h4 {
+      margin-bottom: 0.5rem;
+    }
+    .order-items {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .order-items .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .order-items img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button.save-btn, .cancel-btn {
+      background: #003366;
+      color: white;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    .cancel-btn {
+      background: #c0392b;
+      margin-left: 1rem;
+    }
+    .cancel-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="account-container">
+    <h2>My Account</h2>
+
+    <div class="tabs">
+      <button class="tab-button active" onclick="switchTab('orders')">Your Orders</button>
+      <button class="tab-button" onclick="switchTab('payment')">Payment Methods</button>
+    </div>
+
+    <div id="orders" class="tab-content active">
+      <h3>Your Orders</h3>
+      <div id="ordersList"></div>
+    </div>
+
+    <div id="payment" class="tab-content">
+      <h3>Payment Method</h3>
+      <form onsubmit="savePayment(event)">
+        <label>Card Type</label>
+        <input type="text" id="cardType" placeholder="Visa, MasterCard, etc." required />
+
+        <label>Last 4 Digits</label>
+        <input type="text" id="last4" maxlength="4" required />
+
+        <label>Expiry Date</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required />
+
+        <button class="save-btn" type="submit">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll(".tab-content").forEach(div => div.classList.remove("active"));
+      document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+      document.getElementById(tab).classList.add("active");
+      event.target.classList.add("active");
+    }
+
+    async function loadOrders() {
+    try {
+        const token = localStorage.getItem('kuToken');
+        if (!token) {
+            window.location.href = "login.html";
+            return;
+        }
+
+        const response = await fetch('http://localhost:3000/api/orders', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        
+        const orders = await response.json();
+        const container = document.getElementById("ordersList");
+        
+        if (!orders || orders.length === 0) {
+            container.innerHTML = "<p>No past orders found.</p>";
+            return;
+        }
+        
+        container.innerHTML = "";
+        orders.forEach(order => {
+            // Ensure total is treated as a number
+            const total = Number(order.total);
+            
+            // Safely handle shipping address fields
+            const shippingName = order.shipping?.name || 'Not provided';
+            const address1 = order.shipping?.address1 || 'Not provided';
+            const address2 = order.shipping?.address2 ? ', ' + order.shipping.address2 : '';
+            const city = order.shipping?.city || 'Not provided';
+            const state = order.shipping?.state || 'Not provided';
+            const zip = order.shipping?.zip || 'Not provided';
+            
+            const div = document.createElement("div");
+            div.className = "order-card";
+            div.innerHTML = `
+                <h4>Order ID: ${order.id}</h4>
+                <p><strong>Date:</strong> ${new Date(order.order_date).toLocaleString()}</p>
+                <div class="order-items">
+                    ${order.items.map(item => `
+                        <div class="item">
+                            <img src="${item.product_image}" alt="${item.product_title}" />
+                            <span>${item.product_title} (${item.quantity}x)</span>
+                        </div>
+                    `).join('')}
+                </div>
+                <p><strong>Total:</strong> $${total.toFixed(2)}</p>
+                <p><strong>Status:</strong> ${order.status}</p>
+                <p><strong>Delivery Address:</strong> ${shippingName}, ${address1}${address2}, ${city}, ${state} ${zip}</p>
+                <button class="cancel-btn" onclick="cancelOrder(${order.id})" ${order.status !== 'processing' ? 'disabled' : ''}>    ${order.status === 'cancelled' ? 'Cancelled' : 'Cancel Order'}</button>`;
+            container.appendChild(div);
+        });
+    } catch (error) {
+        console.error('Error loading orders:', error);
+        document.getElementById("ordersList").innerHTML = "<p>Error loading orders. Please try again.</p>";
+    }
+}
+
+async function cancelOrder(orderId) {
+    if (confirm("Are you sure you want to cancel this order?")) {
+        try {
+            const token = localStorage.getItem('kuToken');
+            const response = await fetch(`http://localhost:3000/api/orders/${orderId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                alert('Order cancelled successfully');
+                loadOrders(); // Refresh the orders list
+            } else {
+                const data = await response.json();
+                alert(data.error || "Failed to cancel order");
+            }
+        } catch (error) {
+            console.error('Cancel order error:', error);
+            alert("Failed to cancel order");
+        }
+    }
+}
+
+    function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = JSON.parse(localStorage.getItem("kuUser"));
+      const accountDropdown = document.getElementById("accountDropdown");
+      const accountName = document.getElementById("accountName");
+      const loginLink = document.getElementById("loginLink");
+
+      if (user && accountDropdown && accountName) {
+        accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+        accountDropdown.style.display = "inline-block";
+        if (loginLink) loginLink.style.display = "none";
+      }
+    });
+
+    function loadPaymentMethod() {
+      const data = JSON.parse(localStorage.getItem("paymentMethod") || "{}");
+      document.getElementById("cardType").value = data.cardType || "";
+      document.getElementById("last4").value = data.last4 || "";
+      document.getElementById("expiry").value = data.expiry || "";
+    }
+
+    function savePayment(e) {
+      e.preventDefault();
+      const cardType = document.getElementById("cardType").value;
+      const last4 = document.getElementById("last4").value;
+      const expiry = document.getElementById("expiry").value;
+      localStorage.setItem("paymentMethod", JSON.stringify({ cardType, last4, expiry }));
+      alert("Payment method updated!");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadOrders();
+      loadPaymentMethod();
+    });
+  </script>
+</body>
+</html>

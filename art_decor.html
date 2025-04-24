@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="1.JPEG" alt="Welcome"></div>
+      <div class="carousel-slide"><img src="2.JPEG" alt="Sell"></div>
+      <div class="carousel-slide"><img src="3.JPEG" alt="Deals"></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+  <!-- Heading -->
+  <h2 style="text-align: center; margin-top: 2rem;">Art & Decor</h2>
+  <!-- Layout -->
+
+    <section class="product-grid" id="productGrid">
+      
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a1.avif" alt="Derwent Sketching Wallet Set" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Derwent Sketching Wallet Set<h3>
+        <strong>$49.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a2.avif" alt="Articulated Wooden Hands 12-in Articulated Wooden Right Hand" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Art Alternatives Articulated Wooden Hands 12" Articulated Wooden Right Hand</h3>
+        <strong>$24.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a3.avif" alt="Table Sketch Box Easel" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Art Alternatives Merced Table Sketch Box Easel</h3>
+        <strong>$79.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a4.avif" alt="Art Supply Chest" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Art Alternatives Artist's Supply Chest<h3>
+        <strong>$85.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a5.avif" alt="Mabel Easel" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Mabef Inclinable Lyre Easel<h3>
+        <strong>$259.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a6.avif" alt="Crayola Pencil Set" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Crayola Colored Pencil 12-Piece Set<h3>
+        <strong>$5.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a7.avif" alt="Hard-Bound Sketch Book" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Art Alternatives Hard-Bound Sketch Book, 11" x 14"<h3>
+        <strong>$25.98</strong>
+      </div>
+      
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a8.avif" alt="LED String Lights" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Twinkly Dots Flexible LED String Lights<h3>
+        <strong>$89.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a9.avif" alt="LED String Lights" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Twinkly Strings LED String Lights<h3>
+        <strong>$115.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a10.avif" alt="Pillow" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Safavieh Trini Pillow<h3>
+        <strong>$27.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a11.avif" alt="Pillow" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Safavieh Gardenia Floor Pillow, Yellow<h3>
+        <strong>$44.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a12.avif" alt="Picture Frame" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Umbra Exhibit Multi Picture Frame Displays<h3>
+        <strong>$62.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a13.avif" alt="Clock" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>PUGG Wall clock<h3>
+        <strong>$19.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a14.avif" alt="Alarm Clock" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>FILMIS Clock/thermometer/alarm<h3>
+        <strong>$17.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a15.avif" alt="Alarm Clock" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>DEKAD Alarm clock<h3>
+        <strong>$9.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a16.avif" alt="Neon Sign" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Rainbow Desktop Neon Sign<h3>
+        <strong>$8.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a17.avif" alt="Lamp" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Safavieh Wintson Table Lamp 11" x 11" x 18.25"<h3>
+        <strong>$65.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a18.avif" alt="Table" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Round End Table<h3>
+        <strong>$85.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a19.avif" alt="Shelf Bin" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Simplify Small Woven Storage Shelf Bin in Black, 2pk<h3>
+        <strong>$9.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a20.avif" alt="Clock" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>SKÄRIG Wall clock, Blue<h3>
+        <strong>$19.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a21.avif" alt="Speaker" />
+          <button class="add-to-cart-btn">Alarm Clock</button>
+        </div>
+        <h3>KUPONG Alarm clock, Green<h3>
+        <strong>$1.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a22.avif" alt="Frame" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>SILVERHÖJDEN Frame, Gold, 16x20"<h3>
+        <strong>$16.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a23.avif" alt="Frame" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>FISKBO Frame, Black, 5x7"<h3>
+        <strong>$2.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a24.avif" alt="Floor Mirror" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>IKORNNES Floor mirror 20-1/2" x 65 3/4"<h3>
+        <strong>$169.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a25.avif" alt="Mirror" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>LINDBYN Mirror, Black, 31-1/2"<h3>
+        <strong>$79.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a26.avif" alt="Potpurri" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>KROPPSVARM Potpourri in a bag, Lavender<h3>
+        <strong>$1.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a27.avif" alt="Tealight" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>JÄMLIK Scented tealight, Vanilla/Light Beige<h3>
+        <strong>$3.49</strong>
+      </div>
+      
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a28.avif" alt="Tealight" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>STÖRTSKÖN Scented tealight, Berries/Red<h3>
+        <strong>$3.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a29.avif" alt="Pegboard" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>SKÅDIS Pegboard, White, 30x22"<h3>
+        <strong>$27.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a30.avif" alt="Box" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>SKUBB Box, White, set of 6<h3>
+        <strong>$5.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a31.avif" alt="Crate" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>VESSLA Storage crate with casters, White, 15-1/4" x 15-1/4"<h3>
+        <strong>$7.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a32.avif" alt="Basket" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>MBRANÄS Basket 12-1/2" x 13-1/2" x 12-1/2"<h3>
+        <strong>$23.49</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a33.avif" alt="Vase" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>KONSTFULL Vase, Green<h3>
+        <strong>$13.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a34.avif" alt="Vase" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>STILREN Vase, White<h3>
+        <strong>$15.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a35.avif" alt="Palette Pad" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Art Alternatives White Paper Palette Pad<h3>
+        <strong>$13.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a36.avif" alt="Pen" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Metallic Gel Pen<h3>
+        <strong>$0.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a37.avif" alt="Stool" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Mabef Folding Stool<h3>
+        <strong>$89.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a38.avif" alt="Scissors" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Soft Touch Scissors<h3>
+        <strong>$25.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a39.avif" alt="Ruler" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Ruler Wood<h3>
+        <strong>$2.98</strong>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="a40.jpg" alt="Pastel Storage" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>Art Alternatives Pastel Storage, 3 Drawer<h3>
+        <strong>$45.98</strong>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Buy, Sell, and Trade on Campus</h2>
+    <p>Everything you need – from students, for students!</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KU Marketplace | Kean University, Union NJ</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("cartItemsContainer");
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+      } else {
+        cart.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <img src="placeholder.jpg" alt="${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.location}</p>
+            <strong>${item.price}</strong>
+          `;
+          container.appendChild(card);
+        });
+      }
+    });
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("kuUser"));
+    const accountDropdown = document.getElementById("accountDropdown");
+    const accountName = document.getElementById("accountName");
+    const loginLink = document.getElementById("loginLink");
+
+    if (user && accountDropdown && accountName) {
+      accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+      accountDropdown.style.display = "inline-block";
+      if (loginLink) loginLink.style.display = "none";
+    }
+  });
+  function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBar = document.getElementById("searchBar");
+if (searchBar) {
+  searchBar.addEventListener("keyup", function (event) {
+    const keyword = this.value.toLowerCase();
+
+    // Filter products (if present)
+    const cards = document.querySelectorAll(".product-card");
+    if (cards.length) {
+      cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+        const match = title.includes(keyword) || desc.includes(keyword);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    // Redirect if Enter is pressed
+    if (event.key === "Enter") {
+      if (keyword.includes("textbook")) {
+        window.location.href = "index.html";
+      } else if (keyword.includes("electronics")) {
+        window.location.href = "electronics.html";
+      } else if (keyword.includes("apparel")) {
+        window.location.href = "apparel.html";
+      } else if (keyword.includes("student")) {
+        window.location.href = "student.html";
+      } else if (keyword.includes("decor") || keyword.includes("art")) {
+        window.location.href = "art_decor.html";
+      } else {
+        alert("No matching category found.");
+      }
+    }
+  });
+}
+
+  });
+  </script>
+</body>
+</html>

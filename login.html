@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .login-container {
+      max-width: 350px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .login-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #111;
+    }
+
+    .login-container label {
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 0.6rem;
+      background: #0066c0;
+      border: 1px solid #0066c0;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .login-container button:hover {
+      background-color: #0066c0;
+    }
+
+    .login-container p {
+      font-size: 0.85rem;
+      color: #555;
+      margin: 1rem 0;
+    }
+
+    .login-container a {
+      color: #0066c0;
+      text-decoration: none;
+    }
+
+    .login-container a:hover {
+      text-decoration: underline;
+    }
+
+    .login-footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 1rem; margin-bottom: -4rem;">
+        <img src="kean-login.PNG" alt="Login Logo" style="height: 100px;" />
+      </div>      
+      
+  <div class="login-container">
+    <h2>Sign in</h2>
+    <form onsubmit="handleLogin(event)">
+      <label for="email">Email or mobile phone number</label>
+      <input type="text" id="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+
+      <button type="submit">Sign in</button>
+
+      <p>By continuing, you agree to KU Marketplace’s <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.</p>
+
+      <p><a href="#">Forgot your password?</a></p>
+    </form>
+
+    <hr style="margin: 1.5rem 0; border: none; border-top: 1px solid #ccc;">
+
+    <p style="text-align: center; font-weight: bold;">New to KU Marketplace?</p>
+    <a href="signup.html">
+      <button style="background: #e7e9ec; color: #111; border: 1px solid #adb1b8;">Create your KU account</button>
+    </a>
+  </div>
+
+  <div class="login-footer">
+    &copy; 2025 KU Marketplace
+  </div>
+
+  <script>
+    // Updated login.html script
+async function handleLogin(e) {
+  e.preventDefault();
+  const response = await fetch('http://localhost:3000/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value
+    })
+  });
+  const data = await response.json();
+  if (data.token) {
+    localStorage.setItem('kuToken', data.token);
+    localStorage.setItem('kuUser', JSON.stringify(data.user));
+    window.location.href = "dashboard.html"; // Redirect after login
+  } else {
+    alert(data.error || "Login failed");
+  }
+}
+  </script>
+
+</body>
+</html>

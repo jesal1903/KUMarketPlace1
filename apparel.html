@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="1.JPEG" alt="Welcome"></div>
+      <div class="carousel-slide"><img src="2.JPEG" alt="Sell"></div>
+      <div class="carousel-slide"><img src="3.JPEG" alt="Deals"></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+  <!-- Heading -->
+  <h2 style="text-align: center; margin-top: 2rem;">Apparel</h2>
+  <!-- Layout -->
+    <section class="product-grid" id="productGrid">
+<!-- Apparel -->  
+
+<div class="product-card hover-card">
+    <div id="apparel"></div>
+    <div class="product-image-wrapper">
+      <img src="https://images.footballfanatics.com/mens-champion-navy-kean-university-sp-wm-over-ssn-replen-banded-bottom-pant_ss10_p-101255439+u-xbknotijiqhpqydmltlx+v-8t8nr9fzm9vuzccugsqt.jpg?_hv=2&w=900" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens CHAMPION navy Kean University SP WM OVER SSN REPLEN BANDED BOTTOM PANT<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="32.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens CHAMPION navy Kean University SP Stacked SSN Replen Open Bottom Pant<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="33.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens Camp David CHARCOAL Kean University SP SSN Burnout Jogger<h3>
+    <strong>$54.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="34.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens LEAGUE H-OAT Kean University Unwind Fleece Hoodie<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="35.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens MV Sport The Game H-GRAY Kean University FUNDAMENTAL CREW<h3>
+    <strong>$35.00</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="36.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens CHAMPION navy Kean University APP ARCH SSN REPLEN POWEBLEND HOOD<h3>
+    <strong>$79.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="37.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Kean University Champion Bartow Collection Powerblend Light Blue<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="38.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens LEAGUE navy Kean University Unwind Fleece Hood<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="39.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens CHAMPION wht Kean University SP LSN REPLEN POWERBLEN CREW<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="40.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens Columbia lbl Kean University CLUB INVITE POLO<h3>
+    <strong>$79.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="41.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Kean University Columbia Total Control Polo navy<h3>
+    <strong>$89.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="41.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens COLUMBIA Navy Kean University Shotgun Polo Polo<h3>
+    <strong>$79.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="https://images.footballfanatics.com/kean-university-cougars/kean-champion-stadium-colorblock-short_ss10_p-101256635+u-e4i0tt46p7dfslz5fqd3+v-vkufqf01o60dmwceymju.jpg?_hv=2&w=400" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Kean Champion Stadium Colorblock Short<h3>
+    <strong>$39.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="https://images.footballfanatics.com/kean-university-cougars/mens-nike-navy-kean-university-basic-fly-short_ss10_p-101332609+u-qwxdnxfd4gsg77ompwfm+v-n0dowoyjbibbgma1iso8.jpg?_hv=2&w=400" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens NIKE Kean University Basic Fly Short<h3>
+    <strong>$69.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="https://images.footballfanatics.com/kean-university-cougars/raid-short-30_ss10_p-100538007+u-2mxxuy3bnrku1g7fbujn+v-wzxo4hfbdpjoqvtxidwg.jpg?_hv=2&w=400" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Raid Short 3.0<h3>
+    <strong>$49.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="43.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Womens Red Shirt navy Kean University FLEECE JOGGER<h3>
+    <strong>$36.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="44.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Womens Red Shirt GRY Kean University FLEECE JOGGER<h3>
+    <strong>$36.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="45.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Womens LEAGUE GRY Kean University Victory Springs Pant<h3>
+    <strong>$36.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="46.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Kean Chicka D Womens's Campus Pullover Crewneck Sweatshirt<h3>
+    <strong>$69.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="47.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Womens CHAMPION gry Kean University REVERSE WEAVE CROP HOOD<h3>
+    <strong>$79.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="48.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Womens Chicka D GRY Kean University HAILEY MOCK NECK CREW<h3>
+    <strong>$62.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="49.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Womens CHAMPION navy Kean University WOMEN'S POWERBLEND HOODIE<h3>
+    <strong>$64.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="50.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Women's Champion Oatmeal Kean University Cougars Powerblend Fleece<h3>
+    <strong>$69.99</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="51.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Women's Champion Navy Kean University Cougars Powerblend Fleece Pullover<h3>
+    <strong>$69.99</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="52.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Women's Champion Navy Kean University Cougars Core T-Shirt<h3>
+    <strong>$39.99</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="53.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Women's Light Blue Kean University Cougars Script Logo Comfort Wash V-Neck T-Shirt<h3>
+    <strong>$34.99</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="54.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Women's CHAMPION wht Kean University BOYFRIEND CROP LS TEE<h3>
+    <strong>$36.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="55.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>mens NIKE navy Kean University RISE COLOR BLOCK TRUCKER<h3>
+    <strong>$34.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="56.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens LEGACY GRY Kean University Mid-Pro Snapback Trucker Primary<h3>
+    <strong>$32.98</strong>
+  </div>
+
+  <div class="product-card hover-card">
+    <div class="product-image-wrapper">
+      <img src="57.avif" alt="Apparel" />
+      <button class="add-to-cart-btn">Add to Cart</button>
+    </div>
+    <h3>Mens NIKE navy Kean University NCAA NK Easy Club Adj<h3>
+    <strong>$34.98</strong>
+  </div>
+</section>
+</div>
+
+<!-- Banner -->
+<section class="banner">
+  <h2>Buy, Sell, and Trade on Campus</h2>
+  <p>Everything you need – from students, for students!</p>
+</section>
+
+
+<footer>
+  <p>&copy; 2025 KU Marketplace | Kean University, Union NJ</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("cartItemsContainer");
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    if (cart.length === 0) {
+      container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+    } else {
+      cart.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+        card.innerHTML = `
+          <img src="placeholder.jpg" alt="${item.title}">
+          <h3>${item.title}</h3>
+          <p>${item.location}</p>
+          <strong>${item.price}</strong>
+        `;
+        container.appendChild(card);
+      });
+    }
+  });
+
+  function clearCart() {
+    localStorage.removeItem("cart");
+    location.reload();
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("kuUser"));
+    const accountDropdown = document.getElementById("accountDropdown");
+    const accountName = document.getElementById("accountName");
+    const loginLink = document.getElementById("loginLink");
+
+    if (user && accountDropdown && accountName) {
+      accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+      accountDropdown.style.display = "inline-block";
+      if (loginLink) loginLink.style.display = "none";
+    }
+  });
+function logout() {
+    localStorage.removeItem("kuUser");
+    window.location.href = "login.html";
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const searchBar = document.getElementById("searchBar");
+if (searchBar) {
+  searchBar.addEventListener("keyup", function (event) {
+    const keyword = this.value.toLowerCase();
+
+    // Filter products (if present)
+    const cards = document.querySelectorAll(".product-card");
+    if (cards.length) {
+      cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+        const match = title.includes(keyword) || desc.includes(keyword);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    // Redirect if Enter is pressed
+    if (event.key === "Enter") {
+      if (keyword.includes("textbook")) {
+        window.location.href = "index.html";
+      } else if (keyword.includes("electronics")) {
+        window.location.href = "electronics.html";
+      } else if (keyword.includes("apparel")) {
+        window.location.href = "apparel.html";
+      } else if (keyword.includes("student")) {
+        window.location.href = "student.html";
+      } else if (keyword.includes("decor") || keyword.includes("art")) {
+        window.location.href = "art_decor.html";
+      } else {
+        alert("No matching category found.");
+      }
+    }
+  });
+}
+
+});
+</script>
+</body>
+</html>

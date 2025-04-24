@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .form-container {
+      max-width: 400px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      margin-left: 6px;
+      cursor: pointer;
+    }
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: #003366;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 8px;
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      left: 110%;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: #003366;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <h1>Secure Checkout</h1>
+    <nav>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h2>Enter Payment Details</h2>
+    <form onsubmit="handlePayment(event)">
+      <label for="cardType">Card Type</label>
+      <input type="text" id="cardType" required placeholder="Visa, MasterCard, etc." />
+
+      <label for="card">Card Number</label>
+      <input type="text" id="card" required maxlength="19" />
+
+      <label for="security">Security Code
+        <span class="tooltip">ℹ️
+          <span class="tooltiptext">3-digit code on back of card (or 4-digit on front for AMEX)</span>
+        </span>
+      </label>
+      <input type="text" id="security" required maxlength="4" />
+
+      <label for="expiry">Expiration Date (MM/YY)</label>
+      <input type="text" id="expiry" required placeholder="MM/YY" />
+
+      <button type="submit">Next</button>
+    </form>
+  </div>
+
+  <script>
+    function handlePayment(e) {
+      e.preventDefault();
+
+      const cardType = document.getElementById("cardType").value;
+      const cardNumber = document.getElementById("card").value;
+      const last4 = cardNumber.slice(-4);
+      const expiry = document.getElementById("expiry").value;
+
+      localStorage.setItem("paymentMethod", JSON.stringify({
+        cardType,
+        last4,
+        expiry
+      }));
+
+      window.location.href = "address.html";
+    }
+
+    function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = JSON.parse(localStorage.getItem("kuUser"));
+      const accountDropdown = document.getElementById("accountDropdown");
+      const accountName = document.getElementById("accountName");
+      const loginLink = document.getElementById("loginLink");
+
+      if (user && accountDropdown && accountName) {
+        accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+        accountDropdown.style.display = "inline-block";
+        if (loginLink) loginLink.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>

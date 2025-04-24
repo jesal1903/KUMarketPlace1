@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shipping Address - KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 3rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .inline-inputs {
+      display: flex;
+      gap: 10px;
+    }
+    .inline-inputs input {
+      flex: 1;
+    }
+    button {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 0.75rem;
+      background: #003366;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Enter Shipping Address</h2>
+    <form onsubmit="handleAddress(event)">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" required />
+
+      <label for="addr1">Address Line 1</label>
+      <input type="text" id="addr1" required />
+
+      <label for="addr2">Address Line 2</label>
+      <input type="text" id="addr2" />
+
+      <div class="inline-inputs">
+        <div>
+          <label for="city">City</label>
+          <input type="text" id="city" required />
+        </div>
+        <div>
+          <label for="state">State</label>
+          <input type="text" id="state" required />
+        </div>
+        <div>
+          <label for="zip">Zip Code</label>
+          <input type="text" id="zip" required />
+        </div>
+      </div>
+
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" required />
+
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    async function handleAddress(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("fullname").value;
+    const addr1 = document.getElementById("addr1").value;
+    const addr2 = document.getElementById("addr2").value;
+    const city = document.getElementById("city").value;
+    const state = document.getElementById("state").value;
+    const zip = document.getElementById("zip").value;
+    const phone = document.getElementById("phone").value;
+
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    const orderSummary = JSON.parse(localStorage.getItem("orderSummary") || "{}");
+    const paymentMethod = JSON.parse(localStorage.getItem("paymentMethod") || "{}");
+
+    try {
+        const token = localStorage.getItem('kuToken');
+        if (!token) {
+            alert("Please login to complete your order");
+            window.location.href = "login.html";
+            return;
+        }
+
+        const response = await fetch('http://localhost:3000/api/orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                shipping: {
+                    name: name,
+                    address1: addr1,
+                    address2: addr2,
+                    city: city,
+                    state: state,
+                    zip: zip,
+                    phone: phone
+                },
+                items: cart.map(item => ({
+                    title: item.title,
+                    price: parseFloat(item.price.replace(/[^\d.]/g, "")) || 0,
+                    image: item.image || 'placeholder.jpg',
+                    quantity: 1
+                })),
+                subtotal: parseFloat(orderSummary.subtotal) || 0,
+                tax: parseFloat(orderSummary.tax) || 0,
+                shippingFee: parseFloat(orderSummary.shipping) || 0,
+                total: parseFloat(orderSummary.total) || 0
+            })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            // Clear cart and redirect to order confirmation
+            localStorage.removeItem("cart");
+            localStorage.removeItem("orderSummary");
+            localStorage.setItem("lastOrder", JSON.stringify(data));
+            window.location.href = "account.html";
+        } else {
+            alert(data.error || "Order failed. Please try again.");
+        }
+    } catch (error) {
+        console.error('Order error:', error);
+        alert("Order failed. Please try again.");
+    }
+}
+  </script>
+</body>
+</html>

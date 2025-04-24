@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Carousel -->
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="1.JPEG" alt="Welcome"></div>
+      <div class="carousel-slide"><img src="2.JPEG" alt="Sell"></div>
+      <div class="carousel-slide"><img src="3.JPEG" alt="Deals"></div>
+    </div>
+    <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+    <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+  </div>
+  <!-- Heading -->
+  <h2 style="text-align: center; margin-top: 2rem;">Textbook</h2>
+  <!-- Layout -->
+    <section class="product-grid" id="productGrid">
+    <!-- Textbook -->
+      <div class="product-card hover-card">
+        <div id="textbooks"></div>
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Covers/M002316109.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Introduction to Java Programming and Data Structures: Comprehensive Version</a>
+        </h3>
+        <p><strong>Author:</strong> Y. Daniel Liang</p>
+        <p><strong>Edition:</strong> 12th (2020)</p>
+        <p><strong>Publisher:</strong> Pearson</p>
+        <p><strong>ISBN-13:</strong> 9780136520238</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $84.95<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $84.95</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - $118.90</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - $127.39</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $169.85</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - $50.94 (180 days)</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $94.99</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/1119495202_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Architecture of Computer Hardeware, Systems Software, nd Networking</a>
+        </h3>
+        <p><strong>Author:</strong> Englnder, Irv / Wong, Wilson</p>
+        <p><strong>Edition:</strong> 6th (2021)</p>
+        <p><strong>Publisher:</strong> Wiley</p>
+        <p><strong>ISBN-13:</strong> 9781119495208</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $74.55<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $74.55</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - $104.35</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - $111.80</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $149.06</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - $44.00 (150 days)</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $105.95</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/M008142997_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Computer Security Principles and Practice</a>
+        </h3>
+        <p><strong>Author:</strong> Stallings, William</p>
+        <p><strong>Edition:</strong> 5th (2024)</p>
+        <p><strong>Publisher:</strong> Rent Pears</p>
+        <p><strong>ISBN-13:</strong> 9780138091675</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $85.99<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $85.99</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - $50.94 (180 days)</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $94.99</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/M005066098_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Information Systems Project Management</a>
+        </h3>
+        <p><strong>Author:</strong> Schneider/p>
+        <p><strong>Edition:</strong> 20th</p>
+        <p><strong>Publisher:</strong> Prospect</p>
+        <p><strong>ISBN-13:</strong> 9781943153534</p>
+        <p><strong style="color: green;">Best Deal:</strong> Digital Purchase - $51.25<br><small></small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $51.25</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/013438038X_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Designing the User Interface - With Access</a>
+        </h3>
+        <p><strong>Author:</strong> Shneiderman, Ben / Plaisant, Catherine / Cohen, Maxine</p>
+        <p><strong>Edition:</strong> 6th (2017)</p>
+        <p><strong>Publisher:</strong> Pearson</p>
+        <p><strong>ISBN-13:</strong> 9780134380384</p>
+        <p><strong style="color: green;">Best Deal:</strong> New Print - $221.41<br><small></small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $221.41</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - N/A</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/M002009755_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Responsive Design: Patterns & Principles</a>
+        </h3>
+        <p><strong>Author:</strong> Marcotte, Ethan</p>
+        <p><strong>Edition:</strong> 15th </p>
+        <p><strong>Publisher:</strong> A Book Apa</p>
+        <p><strong>ISBN-13:</strong> 9781937557331</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $9.85<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $9.85</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - $17.60</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - $15.53</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $20.71</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - N/A</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - N/A</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/0134277554_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">UNIX and Linux System Administration Handbook</a>
+        </h3>
+        <p><strong>Author:</strong> Nemeth, Evi / Snyder, Garth / Hein, Trent R. / Whaley, Ben / Mackin, Dan</p>
+        <p><strong>Edition:</strong> 5th (2018)</p>
+        <p><strong>Publisher:</strong> Pearson</p>
+        <p><strong>ISBN-13:</strong> 9780134277554</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $38.50<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $38.50</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - $52.90</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - $57.74</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $76.99</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - $50.94 (180 days)</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $66.99</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/M010752048_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Python Programming</a>
+        </h3>
+        <p><strong>Author:</strong> Zelle, John M.</p>
+        <p><strong>Edition:</strong> 4th (2024)</p>
+        <p><strong>Publisher:</strong> F Beedle</p>
+        <p><strong>ISBN-13:</strong> 9781590282977</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $37.15<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $37.15</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - $52.00</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - $55.72</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $74.29</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - $20.00 (120 days)</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $30.00</label><br>
+        </form>
+      </div>
+
+      <div class="product-card hover-card">
+        <div class="product-image-wrapper">
+          <img src="https://bookinfo.mbsdirect.net/TextbookInfo/Thumb/1071831402_t.gif" alt="TextBook" />
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+        <h3>
+          <a href="#">Crime Analysis with Crime Mapping</a>
+        </h3>
+        <p><strong>Author:</strong> Santos, Rachel Boba</p>
+        <p><strong>Edition:</strong> 5th (2023)</p>
+        <p><strong>Publisher:</strong> Sage</p>
+        <p><strong>ISBN-13:</strong> 9781071831403</p>
+        <p><strong style="color: green;">Best Deal:</strong> Used Print Rental - $91.50<br><small>(Return by 05/11/25)</small></p>
+        <form>
+          <label><input type="radio" name="purchase1" checked /> Used Print Rental - $91.50</label><br>
+          <label><input type="radio" name="purchase1" /> New Print Rental - $128.10</label><br>
+          <label><input type="radio" name="purchase1" /> Buy Used Print - $124.50</label><br>
+          <label><input type="radio" name="purchase1" /> Buy New Print - $166.00</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Rental - $73.00 (180 days)</label><br>
+          <label><input type="radio" name="purchase1" /> Digital Purchase - $106.00</label><br>
+        </form>
+      </div>
+    </section>
+  </div>
+  <!-- Banner -->
+  <section class="banner">
+    <h2>Buy, Sell, and Trade on Campus</h2>
+    <p>Everything you need – from students, for students!</p>
+  </section>
+
+
+  <footer>
+    <p>&copy; 2025 KU Marketplace | Kean University, Union NJ</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const container = document.getElementById("cartItemsContainer");
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+      } else {
+        cart.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <img src="placeholder.jpg" alt="${item.title}">
+            <h3>${item.title}</h3>
+            <p>${item.location}</p>
+            <strong>${item.price}</strong>
+          `;
+          container.appendChild(card);
+        });
+      }
+    });
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const user = JSON.parse(localStorage.getItem("kuUser"));
+    const accountDropdown = document.getElementById("accountDropdown");
+    const accountName = document.getElementById("accountName");
+    const loginLink = document.getElementById("loginLink");
+
+    if (user && accountDropdown && accountName) {
+      accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+      accountDropdown.style.display = "inline-block";
+      if (loginLink) loginLink.style.display = "none";
+    }
+  });
+  function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      const searchBar = document.getElementById("searchBar");
+if (searchBar) {
+  searchBar.addEventListener("keyup", function (event) {
+    const keyword = this.value.toLowerCase();
+
+    // Filter products (if present)
+    const cards = document.querySelectorAll(".product-card");
+    if (cards.length) {
+      cards.forEach(card => {
+        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
+        const match = title.includes(keyword) || desc.includes(keyword);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    // Redirect if Enter is pressed
+    if (event.key === "Enter") {
+      if (keyword.includes("textbook")) {
+        window.location.href = "index.html";
+      } else if (keyword.includes("electronics")) {
+        window.location.href = "electronics.html";
+      } else if (keyword.includes("apparel")) {
+        window.location.href = "apparel.html";
+      } else if (keyword.includes("student")) {
+        window.location.href = "student.html";
+      } else if (keyword.includes("decor") || keyword.includes("art")) {
+        window.location.href = "art_decor.html";
+      } else {
+        alert("No matching category found.");
+      }
+    }
+  });
+}
+
+  });
+  </script>
+</body>
+</html>

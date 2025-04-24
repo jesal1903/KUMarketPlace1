@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - KU Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="1.1.PNG" alt="KU Logo" class="logo-img" />
+    </div>
+    <input type="text" id="searchBar" placeholder="Search items..." class="search-bar" />
+    <nav>
+      <a href="dashboard.html">Home</a>
+      <a href="index.html">Textbooks</a>
+      <div class="dropdown">
+        <button class="dropbtn">Categories</button>
+        <div class="dropdown-content">
+          <a href="graduation.html">Graduation</a>
+          <a href="electronics.html">Electronics</a>
+          <a href="apparel.html">Apparel</a>
+          <a href="student.html">Student Essentials</a>
+          <a href="art_decor.html">Art & Decor</a>
+        </div>
+      </div>
+      <a href="cart.html">Cart</a>
+      <a href="login.html" id="loginLink">Login</a>
+      <div class="dropdown" id="accountDropdown" style="display: none;">
+        <button class="dropbtn" id="accountName">Hello ▼</button>
+        <div class="dropdown-content">
+          <a href="account.html">My Account</a>
+          <a href="#" onclick="logout()" title="Logout">Log Out</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="marketplace-container" style="align-items: flex-start; display: flex;">
+    <div class="product-grid" id="cartItemsContainer" style="flex: 3;">
+      <!-- Cart items will be inserted here -->
+    </div>
+
+    <div style="flex: 1; margin-left: 2rem;">
+      <div id="summaryBox" style="background: #f9f9f9; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <h3>Order Summary</h3>
+        <p><strong>Total of items:</strong> $<span id="itemsTotal">0.00</span></p>
+        <p><strong>Tax (6.665%):</strong> $<span id="taxAmount">0.00</span></p>
+        <p><strong>Shipping:</strong> $<span id="shippingAmount">0.00</span></p>
+        <hr>
+        <p><strong>Subtotal:</strong> $<span id="finalTotal">0.00</span></p>
+        <button onclick="clearCart()" style="width: 100%; padding: 1rem; background-color:#003366; color:white; border:none; border-radius:8px; margin-top: 1rem;">Clear Cart</button>
+        <button onclick="checkout()" style="width: 100%; padding: 1rem; background-color:green; color:white; border:none; border-radius:8px; margin-top: 1rem;">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 KU Marketplace. All rights reserved.
+  </footer>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("kuUser");
+      window.location.href = "login.html";
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      location.reload();
+    }
+
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    }
+
+    function updateSummary() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const subtotal = cart.reduce((total, item) => {
+        const amount = parseFloat(item.price.replace(/[^\d.]/g, "")) || 0;
+        return total + amount;
+      }, 0);
+
+      const tax = +(subtotal * 0.06665).toFixed(2);
+      const shipping = subtotal > 200 ? 0 : 15.99;
+      const final = +(subtotal + tax + shipping).toFixed(2);
+
+      document.getElementById("itemsTotal").textContent = subtotal.toFixed(2);
+      document.getElementById("taxAmount").textContent = tax.toFixed(2);
+      document.getElementById("shippingAmount").textContent = shipping.toFixed(2);
+      document.getElementById("finalTotal").textContent = final.toFixed(2);
+
+      localStorage.setItem("orderSummary", JSON.stringify({
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        shipping: shipping.toFixed(2),
+        total: final.toFixed(2)
+      }));
+    }
+
+    function checkout() {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+      window.location.href = "payment.html";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const user = JSON.parse(localStorage.getItem("kuUser"));
+      const accountDropdown = document.getElementById("accountDropdown");
+      const accountName = document.getElementById("accountName");
+      const loginLink = document.getElementById("loginLink");
+
+      if (user && accountDropdown && accountName) {
+        accountName.innerText = `Hello, ${user.email.split("@")[0]} ▼`;
+        accountDropdown.style.display = "inline-block";
+        if (loginLink) loginLink.style.display = "none";
+      }
+
+      const container = document.getElementById("cartItemsContainer");
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p style='grid-column: 1 / -1; text-align: center;'>Your cart is empty.</p>";
+      } else {
+        cart.forEach((item, index) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.innerHTML = `
+            <img src="${item.image || 'placeholder.jpg'}" alt="${item.title}" />
+            <h3>${item.title}</h3>
+            <p>${item.location}</p>
+            <strong>${item.price}</strong><br>
+            <button onclick="removeItem(${index})" style="margin-top: 0.5rem; padding: 0.5rem 1rem; background-color:#c0392b; color:white; border:none; border-radius:6px;">Remove</button>
+          `;
+          container.appendChild(card);
+        });
+      }
+
+      updateSummary();
+    });
+  </script>
+</body>
+</html>
