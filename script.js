@@ -6,12 +6,8 @@ function moveSlide(direction) {
   const totalSlides = slides.length;
 
   currentSlide += direction;
-
-  if (currentSlide < 0) {
-    currentSlide = totalSlides - 1;
-  } else if (currentSlide >= totalSlides) {
-    currentSlide = 0;
-  }
+  if (currentSlide < 0) currentSlide = totalSlides - 1;
+  else if (currentSlide >= totalSlides) currentSlide = 0;
 
   track.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
@@ -27,12 +23,9 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("add-to-cart-btn")) {
     const card = e.target.closest(".product-card");
     const title = card.querySelector("h3").textContent;
-    const locationElement = card.querySelector("p");
-    const location = locationElement ? locationElement.textContent : "Location not available";
-    const priceElement = card.querySelector("strong");
-    const price = priceElement ? priceElement.textContent : "Price not available";
-    const imgElement = card.querySelector("img");
-    const image = imgElement ? imgElement.src : "placeholder.jpg";
+    const location = card.querySelector("p")?.textContent || "N/A";
+    const price = card.querySelector("strong")?.textContent || "N/A";
+    const image = card.querySelector("img")?.src || "placeholder.jpg";
 
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     cart.push({ title, location, price, image });
@@ -42,66 +35,88 @@ document.addEventListener("click", function (e) {
   }
 });
 
-// DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(autoSlide, 4000);
 
-  // Search filter
+  // 🔍 Search filter
   const searchBar = document.getElementById("searchBar");
   if (searchBar) {
     searchBar.addEventListener("keyup", function (event) {
       const keyword = this.value.toLowerCase();
       const products = document.querySelectorAll(".product-card");
 
-      // Filter current page products
       products.forEach(card => {
         const name = card.querySelector("h3")?.textContent.toLowerCase() || "";
         const desc = card.querySelector("p")?.textContent.toLowerCase() || "";
         card.style.display = name.includes(keyword) || desc.includes(keyword) ? "block" : "none";
       });
 
-      // Redirect by keyword on Enter
       if (event.key === "Enter") {
-        if (keyword.includes("textbook")) {
-          window.location.href = "index.html";
-        } else if (keyword.includes("electronics")) {
-          window.location.href = "electronics.html";
-        } else if (keyword.includes("apparel")) {
-          window.location.href = "apparel.html";
-        } else if (keyword.includes("student")) {
-          window.location.href = "student.html";
-        } else if (keyword.includes("decor") || keyword.includes("art")) {
-          window.location.href = "art_decor.html";
-        } else {
-          alert("No matching category found.");
-        }
+        if (keyword.includes("textbook")) window.location.href = "index.html";
+        else if (keyword.includes("electronics")) window.location.href = "electronics.html";
+        else if (keyword.includes("apparel")) window.location.href = "apparel.html";
+        else if (keyword.includes("student")) window.location.href = "student.html";
+        else if (keyword.includes("decor") || keyword.includes("art")) window.location.href = "art_decor.html";
+        else alert("No matching category found.");
       }
     });
   }
 
-  // Open Post Modal
+  // 📦 Post Modal
   const postBtn = document.querySelector(".post-button");
-  if (postBtn) {
-    postBtn.onclick = () => {
-      document.getElementById("postItemModal").style.display = "block";
-    };
-  }
+  postBtn?.addEventListener("click", () => {
+    document.getElementById("postItemModal").style.display = "block";
+  });
 
-  // Close Post Modal
   const closeBtn = document.querySelector(".close-post");
-  if (closeBtn) {
-    closeBtn.onclick = () => {
-      document.getElementById("postItemModal").style.display = "none";
-    };
+  closeBtn?.addEventListener("click", () => {
+    document.getElementById("postItemModal").style.display = "none";
+  });
+
+  const postForm = document.getElementById("postForm");
+  postForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Post feature is disabled for demo.");
+    document.getElementById("postItemModal").style.display = "none";
+  });
+});
+
+// ✅ SIGNUP to backend (REPLACE with your backend link)
+const backendURL = "https://ku-marketplace-backend.onrender.com";
+
+document.getElementById("signupForm")?.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const fullname = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return;
   }
 
-  // Prevent dummy form submission
-  const postForm = document.getElementById("postForm");
-  if (postForm) {
-    postForm.onsubmit = (e) => {
-      e.preventDefault();
-      alert("Post functionality is disabled in this static version. Please add items manually in HTML.");
-      document.getElementById("postItemModal").style.display = "none";
-    };
-  }
+  fetch(`${backendURL}/api/auth/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ fullname, email, password })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.token) {
+        alert("Signup successful!");
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        window.location.href = "dashboard.html";
+      } else {
+        alert(data.error || "Signup failed. Please try again.");
+      }
+    })
+    .catch(err => {
+      console.error("Signup error:", err);
+      alert("Server error. Check network or backend.");
+    });
 });
