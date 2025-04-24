@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ✅ SIGNUP to backend (REPLACE with your backend link)
-const backendURL = "https://ku-marketplace-backend.onrender.com";
+const backendURL = "https://kumarketplace1-backend.onrender.com";
 
 document.getElementById("signupForm")?.addEventListener("submit", function (e) {
   e.preventDefault();
