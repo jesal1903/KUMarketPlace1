@@ -22,7 +22,15 @@ const limiter = rateLimit({
 });
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://kumarketplace1.onrender.com",  // Your frontend hosted URL
+    "http://localhost:5500"                 // For local testing
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 app.use(helmet());
 app.use(bodyParser.json());
 app.use('/api/auth/', limiter);
